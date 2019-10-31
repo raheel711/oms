@@ -4,134 +4,140 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.CustId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.OrderTakenBy)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.OrderAssignTo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.OpeningAmount)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CurrentAmount)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PriceIsFinal)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PaidAmount)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ExpenseAmount)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ExtraAmount)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.OrderDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DueDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Link)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Detail)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Status)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AddedBy)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AddedDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ModifyBy)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ModifyDate)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.CustId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OrderTakenBy)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OrderAssignTo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OpeningAmount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CurrentAmount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PriceIsFinal)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PaidAmount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ExpenseAmount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ExtraAmount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OrderDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DueDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Link)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Detail)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Status)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AddedBy)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AddedDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ModifyBy)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ModifyDate)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.OrderId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.OrderId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.OrderId">Delete</a>
-            </td>
-        </tr>
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Customers</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active">All Customers</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">List of Customers</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <table id="OrdList" class="table table-bordered table-hover">
+
+                        <thead>
+                            <tr class="table-primary">
+                                <th>
+                                    @Html.DisplayNameFor(model => model.CustId)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.OpeningAmount)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.CurrentAmount)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.PriceIsFinal)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.PaidAmount)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.ExpenseAmount)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.ExtraAmount)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.OrderDate)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.DueDate)
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CustId)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.OpeningAmount)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CurrentAmount)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.PriceIsFinal)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.PaidAmount)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ExpenseAmount)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ExtraAmount)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.OrderDate)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.DueDate)
+                                    </td>
+                                    <td>
+                                        <a asp-action="Edit" asp-route-id="@item.OrderId">Edit</a> |
+                                        <a asp-action="Details" asp-route-id="@item.OrderId">Details</a> |
+                                        <a asp-action="Delete" asp-route-id="@item.OrderId">Delete</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+
+
+                </div>
+                <!-- /.card-body -->
+            </div>
+
+            <!-- /.card -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</section>
+<!-- /.content -->
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+
+        $(function () {
+            $('#OrdList').DataTable({
+                "paging": true,
+                "lengthChange": false,
+
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+            });
+        });
+
+    </script>
 }
-    </tbody>
-</table>
+
+

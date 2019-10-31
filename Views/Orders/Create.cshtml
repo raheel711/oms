@@ -4,7 +4,6 @@
     ViewData["Title"] = "Create";
 }
 
-
 <section class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
@@ -27,16 +26,15 @@
     <div class="container-fluid">
         <div class="row">
             <!-- left column -->
-            <div class="col-md-6">
+            <div class="col-md-8">
                 <!-- general form elements -->
                 <!-- Input addon -->
                 <div class="card card-info">
                     <div class="card-header">
-                        <h3 class="card-title">Add new Customer!</h3>
+                        <h3 class="card-title">Add new order!</h3>
                     </div>
                     <div class="card-body">
                         <form asp-action="Create">
-
                             <label asp-for="CustId"></label>
                             <div class="input-group mb-3">
 
@@ -46,7 +44,6 @@
                                 <input type="text" asp-for="CustId" class="form-control" placeholder="Select Customer...." required>
                             </div>
 
-
                             <label asp-for="OrderTakenBy"></label>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
@@ -54,6 +51,7 @@
                                 </div>
                                 <input type="text" asp-for="OrderTakenBy" class="form-control" placeholder="Order Taken By..." required>
                             </div>
+
                             <label asp-for="OrderAssignTo"></label>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
@@ -63,7 +61,6 @@
                             </div>
 
                             <label asp-for="OpeningAmount"></label>
-
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">RS</span>
@@ -97,16 +94,12 @@
                                 </div>
                                 <input asp-for="Link" class="form-control" placeholder="Link..." required>
                             </div>
-
-
+                            
                             <label asp-for="Detail"></label>
                             <div class="input-group">
-
                                 <textarea class="form-control" asp-for="Detail" rows="3" placeholder="Enter Detail..."></textarea>
-
                             </div>
                             <br />
-
                             <div class="form-group">
                                 <input type="submit" value="Create" class="btn btn-primary col-md-12" />
                             </div>
