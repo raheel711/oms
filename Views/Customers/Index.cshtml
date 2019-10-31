@@ -1,0 +1,130 @@
+﻿@model IEnumerable<oms.Models.Customer>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Customers</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active">All Customers</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">List of Customers</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <table id="customerList" class="table table-bordered table-hover">
+                        <thead>
+                            <tr class="table-success">
+                                <th>
+                                    @Html.DisplayNameFor(model => model.CustName)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.CustEmail)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.CustContactNo)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.CustWhatsapp)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.CustAddress)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.CustCompany)
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CustName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CustEmail)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CustContactNo)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CustWhatsapp)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CustAddress)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CustCompany)
+                                    </td>
+                                    <td>
+                                        <a asp-action="Edit" asp-route-id="@item.CustId">Edit</a> |
+                                        <a asp-action="Details" asp-route-id="@item.CustId">Details</a> |
+                                        <a asp-action="Delete" asp-route-id="@item.CustId">Delete</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+
+                        @*<tfoot>
+                            <tr>
+                                <th>Rendering engine</th>
+                                <th>Browser</th>
+                                <th>Platform(s)</th>
+                                <th>Engine version</th>
+                                <th>CSS grade</th>
+                            </tr>
+                        </tfoot>*@
+                    </table>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            
+            <!-- /.card -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</section>
+<!-- /.content -->
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+
+        $(function () {
+            $('#customerList').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+            });
+        });
+
+    </script>
+}
